@@ -1,0 +1,2 @@
+#define REPOATTEND10_API __declspec(dllexport)
+#define REPOATTEND10_API __declspec(dllimport)
