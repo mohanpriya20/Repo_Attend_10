@@ -64,12 +64,11 @@ jobs:
     - name: Setup VSTest.exe
       uses: Malcolmnixon/Setup-VSTest@v4
 
-    - name: UploadBinaries
+    - name: DownloadBinaries
       uses: actions/upload-artifact@v3
       with: 
           name: my-artifact
           path: x64\Release\
-          if-no-files-found: error
 
     - name: RunTests
       working-directory: ${{env.GITHUB_WORKSPACE}}
