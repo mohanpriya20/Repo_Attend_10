@@ -61,16 +61,15 @@ jobs:
     runs-on: windows-latest
     needs: [lint, build]
     steps:
-    
+    - name: Setup VSTest.exe
+      uses: Malcolmnixon/Setup-VSTest@v4
+
     - name: UploadBinaries
       uses: actions/upload-artifact@v3
       with: 
           name: my-artifact
-          path: x64\Release\ # or path/to/artifact
+          path: x64\Release\
           if-no-files-found: error
-
-    - name: Setup VSTest.exe
-      uses: Malcolmnixon/Setup-VSTest@v4
 
     - name: RunTests
       working-directory: ${{env.GITHUB_WORKSPACE}}
